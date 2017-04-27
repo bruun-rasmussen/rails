@@ -46,6 +46,7 @@ module ActionView
 
         options = {}
         options[:formats] = [finder.rendered_format] if finder.rendered_format
+        options[:format].push(:json, :html) if finder.rendered_format == :js
 
         if template = finder.disable_cache { finder.find_all(logical_name, [], partial, [], options).first }
           finder.rendered_format ||= template.formats.first
