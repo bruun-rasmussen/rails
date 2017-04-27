@@ -3,6 +3,8 @@ require "models/owner"
 require "models/pet"
 
 class ReloadModelsTest < ActiveRecord::TestCase
+  include ActiveSupport::Testing::Isolation
+
   fixtures :pets, :owners
 
   def test_has_one_with_reload
